@@ -352,12 +352,6 @@
     <div class="container">
         <header>
             <h1>🛰️ Satellite and Radar Systems Experiments</h1>
-            <p>Complete MATLAB Code Collection</p>
-            <div class="student-info">
-                <p><strong>Submitted by:</strong> Shesha Kshitij C R (1SI22ET025)</p>
-                <p><strong>Department:</strong> Electronics and Telecommunication Engineering</p>
-                <p><strong>Institution:</strong> Siddaganga Institute of Technology, Tumakuru</p>
-            </div>
         </header>
         
         <nav>
@@ -444,6 +438,869 @@ Range d = 37215.00 km</pre>
                 
                 <!-- Image Upload Section -->
                 <div class="image-upload-section">
+                    <h4>📸 Add Output Images/Graphs</h4>
+                    <p>Upload screenshots of your MATLAB output plots</p>
+                    <div class="upload-controls">
+                        <div class="file-input-wrapper">
+                            <input type="file" id="exp4-file" accept="image/*" onchange="previewImage(4, this)">
+                            <label for="exp4-file" class="file-input-label">Choose Image</label>
+                        </div>
+                        <input type="text" id="exp4-caption" placeholder="Image caption (optional)" style="padding: 10px; border: 1px solid #cbd5e0; border-radius: 6px; width: 250px;">
+                        <button class="add-image-btn" onclick="addImage(4)" disabled id="exp4-add-btn">Add Image</button>
+                    </div>
+                    <div id="exp4-preview" class="image-preview"></div>
+                </div>
+                
+                <div id="exp4-images" class="images-container"></div>
+            </div>
+
+            <!-- EXPERIMENT 5 -->
+            <div class="experiment" id="exp5">
+                <h2>EXPERIMENT 5</h2>
+                <h3>Multiple Access Techniques Used in Satellite Links</h3>
+                <div class="aim">
+                    <strong>Aim:</strong> To simulate and analyze multiple access techniques used in satellite communication — FDMA, TDMA, and CDMA — using MATLAB, and compare their bandwidth efficiency and signal separation.
+                </div>
+                
+                <div class="code-container">
+                    <div class="code-header">
+                        <span>MATLAB Code</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy Code</button>
+                    </div>
+                    <pre><code>% Experiment 5: Simulation of FDMA, TDMA, and CDMA
+clc; clear; close all;
+
+N = 3; % Number of users
+t = 0:0.001:1; % Time vector
+
+% ---------- FDMA ----------
+f = [2, 4, 6]; % Different carrier frequencies (kHz)
+fdma = zeros(size(t));
+for i = 1:N
+    fdma = fdma + cos(2*pi*f(i)*t);
+end
+
+subplot(3,1,1);
+plot(t, fdma); grid on;
+title('FDMA - Frequency Division Multiple Access');
+xlabel('Time'); ylabel('Amplitude');
+
+% ---------- TDMA ----------
+tdma = zeros(size(t));
+slot = length(t)/N;
+for i = 1:N
+    tdma((i-1)*slot+1 : i*slot) = cos(2*pi*2*t((i-1)*slot+1 : i*slot));
+end
+
+subplot(3,1,2);
+plot(t, tdma); grid on;
+title('TDMA - Time Division Multiple Access');
+xlabel('Time'); ylabel('Amplitude');
+
+% ---------- CDMA ----------
+codes = [1 -1 1 -1; 1 1 -1 -1; 1 -1 -1 1]; % Orthogonal codes
+data = [1 -1 1 1]; % Sample data bits
+cdma = zeros(1, length(codes(1,:)));
+for i = 1:N
+    cdma = cdma + data(1)*codes(i,:);
+end
+
+subplot(3,1,3);
+stem(cdma);
+title('CDMA - Code Division Multiple Access');
+xlabel('Chip Index'); ylabel('Amplitude');</code></pre>
+                </div>
+                
+                <!-- Image Upload Section -->
+                <div class="image-upload-section">
+                    <h4>📸 Add Output Images/Graphs</h4>
+                    <p>Upload screenshots of your MATLAB output plots (FDMA, TDMA, CDMA)</p>
+                    <div class="upload-controls">
+                        <div class="file-input-wrapper">
+                            <input type="file" id="exp5-file" accept="image/*" onchange="previewImage(5, this)">
+                            <label for="exp5-file" class="file-input-label">Choose Image</label>
+                        </div>
+                        <input type="text" id="exp5-caption" placeholder="Image caption (optional)" style="padding: 10px; border: 1px solid #cbd5e0; border-radius: 6px; width: 250px;">
+                        <button class="add-image-btn" onclick="addImage(5)" disabled id="exp5-add-btn">Add Image</button>
+                    </div>
+                    <div id="exp5-preview" class="image-preview"></div>
+                </div>
+                
+                <div id="exp5-images" class="images-container"></div>
+            </div>
+
+            <!-- EXPERIMENT 6 -->
+            <div class="experiment" id="exp6">
+                <h2>EXPERIMENT 6</h2>
+                <h3>Case Study on CubeSat</h3>
+                
+                <div class="case-study">
+                    <h4>Introduction</h4>
+                    <p>CubeSats are miniature satellites built in standard units of 10 × 10 × 10 cm (1U). They are used for educational, research, and low-cost space missions.</p>
+                    
+                    <h4>Key Features</h4>
+                    <ul>
+                        <li><strong>Weight:</strong> Typically 1–1.33 kg per unit</li>
+                        <li><strong>Structure:</strong> Modular (1U, 2U, 3U, or 6U)</li>
+                        <li><strong>Cost-effective</strong> and suitable for university or experimental projects</li>
+                    </ul>
+                    
+                    <h4>Subsystems</h4>
+                    <ul>
+                        <li><strong>Power:</strong> Solar panels and batteries</li>
+                        <li><strong>Communication:</strong> UHF/VHF or S-band transceivers</li>
+                        <li><strong>Control:</strong> Microcontrollers and attitude control sensors</li>
+                        <li><strong>Payload:</strong> Cameras, sensors, or scientific instruments</li>
+                    </ul>
+                    
+                    <h4>Advantages</h4>
+                    <ul>
+                        <li>Low cost and short development cycle</li>
+                        <li>Used for Earth observation, technology testing, and space research</li>
+                        <li>Supports formation flying and constellation missions</li>
+                    </ul>
+                    
+                    <h4>Examples</h4>
+                    <ul>
+                        <li>Planet Labs' Dove satellites (Earth imaging)</li>
+                        <li>NASA's MarCO CubeSats (Mars Cube One mission)</li>
+                    </ul>
+                </div>
+                
+                <div class="aim">
+                    <strong>Aim:</strong> To study the basic design and communication link of a CubeSat by defining CubeSat parameters (mass, size, orbit, frequency, power), computing a simple uplink/downlink link budget using MATLAB, and observing how power, distance and antenna gain affect the received signal.
+                </div>
+                
+                <div class="code-container">
+                    <div class="code-header">
+                        <span>MATLAB Code</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy Code</button>
+                    </div>
+                    <pre><code>% Experiment 6: Case Study on CubeSat Link Budget
+clc; clear;
+
+% ----- Define CubeSat parameters -----
+CubeSat.mass = 1.33; % kg (1U CubeSat example)
+CubeSat.size = [0.1 0.1 0.1]; % m
+CubeSat.P_tx_W = 2; % Transmit power in W
+CubeSat.freq_Hz = 437e6; % Downlink frequency (Hz) – UHF example
+CubeSat.G_tx_dBi = 3; % Tx antenna gain (dBi)
+CubeSat.L_tx_dB = 1; % Tx feeder loss (dB)
+
+% Ground station parameters
+GS.G_rx_dBi = 18; % Rx antenna gain (dBi)
+GS.L_rx_dB = 1.5; % Rx feeder loss (dB)
+GS.Pmin_dBW = -130; % Minimum acceptable received power (dBW)
+
+% Orbit parameters
+h_km = 500; % Orbital altitude (km)
+Re_km = 6371; % Earth radius (km)
+
+% ----- Convert and set up -----
+P_tx_dBW = 10*log10(CubeSat.P_tx_W); % W -> dBW
+f_GHz = CubeSat.freq_Hz / 1e9;
+
+% Slant range approximation: from 500 km (overhead) to 2000 km (low elevation)
+d_km = linspace(h_km, 2000, 100);
+
+% ----- Link calculations -----
+% Free-space path loss
+FSPL_dB = 92.45 + 20*log10(d_km) + 20*log10(f_GHz);
+
+% EIRP of CubeSat
+EIRP_dBW = P_tx_dBW + CubeSat.G_tx_dBi - CubeSat.L_tx_dB;
+
+% Received power over range
+Pr_dBW = EIRP_dBW + GS.G_rx_dBi - GS.L_rx_dB - FSPL_dB;
+
+% Link margin
+Margin_dB = Pr_dBW - GS.Pmin_dBW;
+
+% ----- Display results at closest point (overhead) -----
+fprintf('---- CubeSat Link Budget (Closest Approach) ----\n');
+fprintf('Transmit power = %.2f dBW (%.2f W)\n', P_tx_dBW, CubeSat.P_tx_W);
+fprintf('Tx antenna gain = %.2f dBi\n', CubeSat.G_tx_dBi);
+fprintf('Rx antenna gain = %.2f dBi\n', GS.G_rx_dBi);
+fprintf('Frequency = %.3f GHz\n', f_GHz);
+fprintf('Slant range (min) = %.0f km\n', d_km(1));
+fprintf('FSPL (min range) = %.2f dB\n', FSPL_dB(1));
+fprintf('Received power (min) = %.2f dBW\n', Pr_dBW(1));
+fprintf('Required Pmin = %.2f dBW\n', GS.Pmin_dBW);
+fprintf('Link margin (min) = %.2f dB\n', Margin_dB(1));
+
+% ----- Plot received power vs distance -----
+figure;
+plot(d_km, Pr_dBW, 'LineWidth', 1.5); grid on;
+xlabel('Slant range d (km)');
+ylabel('Received power Pr (dBW)');
+title('CubeSat Downlink: Received Power vs Distance');</code></pre>
+                </div>
+                
+                <div class="output">
+                    <h4>Sample Output:</h4>
+                    <pre>---- CubeSat Link Budget (Closest Approach) ----
+Transmit power = 3.01 dBW (2.00 W)
+Tx antenna gain = 3.00 dBi
+Rx antenna gain = 18.00 dBi
+Frequency = 0.437 GHz
+Slant range (min) = 500 km
+FSPL (min range) = 139.73 dB
+Received power (min) = -119.22 dBW
+Required Pmin = -130.00 dBW
+Link margin (min) = 10.78 dB</pre>
+                </div>
+                
+                <!-- Image Upload Section -->
+                <div class="image-upload-section">
+                    <h4>📸 Add Output Images/Graphs</h4>
+                    <p>Upload screenshots of your MATLAB output plots</p>
+                    <div class="upload-controls">
+                        <div class="file-input-wrapper">
+                            <input type="file" id="exp6-file" accept="image/*" onchange="previewImage(6, this)">
+                            <label for="exp6-file" class="file-input-label">Choose Image</label>
+                        </div>
+                        <input type="text" id="exp6-caption" placeholder="Image caption (optional)" style="padding: 10px; border: 1px solid #cbd5e0; border-radius: 6px; width: 250px;">
+                        <button class="add-image-btn" onclick="addImage(6)" disabled id="exp6-add-btn">Add Image</button>
+                    </div>
+                    <div id="exp6-preview" class="image-preview"></div>
+                </div>
+                
+                <div id="exp6-images" class="images-container"></div>
+            </div>
+
+            <!-- EXPERIMENT 7 -->
+            <div class="experiment" id="exp7">
+                <h2>EXPERIMENT 7</h2>
+                <h3>Evaluate Radar Range Equation and SNR</h3>
+                <div class="aim">
+                    <strong>Aim:</strong> To calculate and analyze the radar range and signal-to-noise ratio (SNR) for a radar system based on transmitted power, antenna gain, radar cross-section, and system losses.
+                </div>
+                
+                <div class="code-container">
+                    <div class="code-header">
+                        <span>MATLAB Code</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy Code</button>
+                    </div>
+                    <pre><code>% Experiment 7: Evaluate Radar Range Equation and SNR
+clc; clear;
+
+% ----- Input -----
+Pt = input('Enter transmitted power Pt (W): '); % e.g. 1e6
+G_dB = input('Enter antenna gain G (dB): '); % e.g. 30
+freq = input('Enter radar frequency (GHz): '); % e.g. 10
+sigma = input('Enter radar cross-section σ (m^2): '); % e.g. 5
+L_dB = input('Enter total system losses L (dB): '); % e.g. 6
+Pmin = input('Enter minimum detectable power (W): '); % e.g. 1e-13
+B = input('Enter receiver bandwidth (Hz): '); % e.g. 1e6
+F_dB = input('Enter noise figure (dB): '); % e.g. 5
+
+% ----- Constants -----
+c = 3e8; % Speed of light (m/s)
+lambda = c / (freq*1e9); % Wavelength (m)
+k = 1.38e-23; % Boltzmann constant
+T = 290; % System temperature (K)
+
+% ----- Convert to linear values -----
+G = 10^(G_dB/10);
+L = 10^(L_dB/10);
+F = 10^(F_dB/10);
+
+% ----- (A) Maximum Range -----
+Rmax = ((Pt * G^2 * lambda^2 * sigma) / ((4*pi)^3 * L * Pmin))^(1/4);
+
+% ----- (B) Received Power at that Range -----
+Pr = (Pt * G^2 * lambda^2 * sigma) / ((4*pi)^3 * L * Rmax^4);
+
+% ----- (C) SNR -----
+SNR = Pr / (k*T*B*F);
+SNR_dB = 10*log10(SNR);
+
+% ----- Output -----
+fprintf('\n---- Radar Range and SNR Results ----\n');
+fprintf('Operating frequency = %.2f GHz\n', freq);
+fprintf('Wavelength = %.4f m\n', lambda);
+fprintf('Transmitted Power = %.2e W\n', Pt);
+fprintf('Antenna Gain = %.2f dB\n', G_dB);
+fprintf('Radar Cross-section = %.2f m^2\n', sigma);
+fprintf('System Losses = %.2f dB\n\n', L_dB);
+fprintf('Maximum Range Rmax = %.2f km\n', Rmax/1000);
+fprintf('Received Power Pr = %.2e W\n', Pr);
+fprintf('SNR = %.2f dB\n', SNR_dB);</code></pre>
+                </div>
+                
+                <div class="output">
+                    <h4>Sample Output:</h4>
+                    <pre>Enter transmitted power Pt (W): 1e6
+Enter antenna gain G (dB): 30
+Enter radar frequency (GHz): 10
+Enter radar cross-section σ (m^2): 5
+Enter total system losses L (dB): 6
+Enter minimum detectable power (W): 1e-13
+Enter receiver bandwidth (Hz): 1e6
+Enter noise figure (dB): 5
+
+---- Radar Range and SNR Results ----
+Operating frequency = 10.00 GHz
+Wavelength = 0.0300 m
+Transmitted Power = 1.00e+06 W
+Antenna Gain = 30.00 dB
+Radar Cross-section = 5.00 m^2
+System Losses = 6.00 dB
+
+Maximum Range Rmax = 115.70 km
+Received Power Pr = 1.00e-13 W
+SNR = 23.12 dB</pre>
+                </div>
+                
+                <!-- Image Upload Section -->
+                <div class="image-upload-section">
+                    <h4>📸 Add Output Images/Graphs</h4>
+                    <p>Upload screenshots of your MATLAB output plots</p>
+                    <div class="upload-controls">
+                        <div class="file-input-wrapper">
+                            <input type="file" id="exp7-file" accept="image/*" onchange="previewImage(7, this)">
+                            <label for="exp7-file" class="file-input-label">Choose Image</label>
+                        </div>
+                        <input type="text" id="exp7-caption" placeholder="Image caption (optional)" style="padding: 10px; border: 1px solid #cbd5e0; border-radius: 6px; width: 250px;">
+                        <button class="add-image-btn" onclick="addImage(7)" disabled id="exp7-add-btn">Add Image</button>
+                    </div>
+                    <div id="exp7-preview" class="image-preview"></div>
+                </div>
+                
+                <div id="exp7-images" class="images-container"></div>
+            </div>
+
+            <!-- EXPERIMENT 8 -->
+            <div class="experiment" id="exp8">
+                <h2>EXPERIMENT 8</h2>
+                <h3>Probability of Detection vs False Alarm Probability</h3>
+                <div class="aim">
+                    <strong>Aim:</strong> To study the relationship between probability of detection (Pd) and probability of false alarm (Pfa) for a radar receiver, and to generate ROC (Receiver Operating Characteristic) curves for different SNR values using MATLAB.
+                </div>
+                
+                <div class="code-container">
+                    <div class="code-header">
+                        <span>MATLAB Code</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy Code</button>
+                    </div>
+                    <pre><code>% Experiment 8: Probability of Detection vs False Alarm Probability (ROC)
+clc; clear; close all;
+
+% ----- User Inputs -----
+N = input('Enter number of samples (e.g. 1e5): ');
+SNR_dB = input('Enter SNR in dB (e.g. 5): ');
+numThr = input('Enter number of threshold points (e.g. 200): ');
+
+% ----- Basic Definitions -----
+SNR_lin = 10^(SNR_dB/10); % Convert SNR from dB to linear
+sigma_n = 1; % Noise standard deviation
+A = sqrt(SNR_lin); % Signal amplitude (for unit-variance noise)
+
+% Threshold range (in units of sigma)
+T_range = linspace(-3, 6, numThr);
+Pfa = zeros(1, numThr);
+Pd = zeros(1, numThr);
+
+% ----- Generate Samples -----
+% H0: noise only
+n0 = sigma_n * randn(1, N);
+
+% H1: signal + noise
+n1 = sigma_n * randn(1, N);
+x1 = A + n1;
+
+% ----- Sweep Thresholds -----
+for i = 1:numThr
+    T = T_range(i);
+    
+    % Probability of false alarm: P(x > T | H0)
+    Pfa(i) = sum(n0 > T) / N;
+    
+    % Probability of detection: P(x > T | H1)
+    Pd(i) = sum(x1 > T) / N;
+end
+
+% ----- Display Example Point -----
+midIdx = round(numThr/2);
+fprintf('\nExample point on ROC (approx. middle threshold):\n');
+fprintf('SNR = %.1f dB, Pfa = %.3f, Pd = %.3f\n', ...
+    SNR_dB, Pfa(midIdx), Pd(midIdx));
+
+% ----- Plot ROC Curve -----
+figure;
+semilogx(Pfa, Pd, 'LineWidth', 1.5);
+grid on;
+xlabel('Probability of False Alarm, P_{fa}');
+ylabel('Probability of Detection, P_{d}');
+title(['ROC Curve for SNR = ', num2str(SNR_dB), ' dB']);</code></pre>
+                </div>
+                
+                <div class="output">
+                    <h4>Sample Output:</h4>
+                    <pre>Enter number of samples (e.g. 1e5): 100000
+Enter SNR in dB (e.g. 5): 5
+Enter number of threshold points (e.g. 200): 200
+
+Example point on ROC (approx. middle threshold):
+SNR = 5.0 dB, Pfa = 0.102, Pd = 0.607</pre>
+                </div>
+                
+                <!-- Image Upload Section -->
+                <div class="image-upload-section">
+                    <h4>📸 Add Output Images/Graphs</h4>
+                    <p>Upload screenshots of your MATLAB output plots (ROC Curve)</p>
+                    <div class="upload-controls">
+                        <div class="file-input-wrapper">
+                            <input type="file" id="exp8-file" accept="image/*" onchange="previewImage(8, this)">
+                            <label for="exp8-file" class="file-input-label">Choose Image</label>
+                        </div>
+                        <input type="text" id="exp8-caption" placeholder="Image caption (optional)" style="padding: 10px; border: 1px solid #cbd5e0; border-radius: 6px; width: 250px;">
+                        <button class="add-image-btn" onclick="addImage(8)" disabled id="exp8-add-btn">Add Image</button>
+                    </div>
+                    <div id="exp8-preview" class="image-preview"></div>
+                </div>
+                
+                <div id="exp8-images" class="images-container"></div>
+            </div>
+
+            <!-- EXPERIMENT 9 -->
+            <div class="experiment" id="exp9">
+                <h2>EXPERIMENT 9</h2>
+                <h3>Calculate Pulse Repetition Frequency (PRF) and Unambiguous Range</h3>
+                <div class="aim">
+                    <strong>Aim:</strong> To study the relationship between pulse repetition frequency (PRF) and maximum unambiguous range of a radar system, and to calculate maximum unambiguous range for a given PRF and required PRF for a specified maximum unambiguous range using MATLAB.
+                </div>
+                
+                <div class="code-container">
+                    <div class="code-header">
+                        <span>MATLAB Code</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy Code</button>
+                    </div>
+                    <pre><code>% Experiment 9: Calculate PRF and Unambiguous Range
+clc; clear; close all;
+
+c = 3e8; % Speed of light (m/s)
+
+% ----- User Inputs -----
+PRF = input('Enter PRF (Hz): '); % e.g. 1000
+R_desired_km = input('Enter desired max unambiguous range (km): '); % e.g. 50
+
+% ----- Calculations -----
+% (A) Unambiguous range for given PRF
+R_unamb_m = c / (2 * PRF); % in meters
+R_unamb_km = R_unamb_m / 1000; % in kilometers
+
+% (B) Required PRF for desired range
+R_desired_m = R_desired_km * 1000;
+PRF_req = c / (2 * R_desired_m);
+
+% ----- Display results -----
+fprintf('\n---- Unambiguous Range and PRF Results ----\n');
+fprintf('Given PRF = %.2f Hz\n', PRF);
+fprintf('Unambiguous range = %.2f km\n', R_unamb_km);
+fprintf('Desired max range = %.2f km\n', R_desired_km);
+fprintf('Required PRF for R_max = %.2f Hz\n', PRF_req);
+
+% ----- Extra: Plot R_unamb vs PRF -----
+PRF_vec = linspace(500, 5000, 100); % PRF from 500 Hz to 5000 Hz
+R_unamb_vec_km = (c ./ (2 * PRF_vec)) / 1000;
+
+figure;
+plot(PRF_vec, R_unamb_vec_km, 'LineWidth', 1.5);
+grid on;
+xlabel('PRF (Hz)');
+ylabel('Unambiguous Range (km)');
+title('Unambiguous Range vs PRF');</code></pre>
+                </div>
+                
+                <div class="output">
+                    <h4>Sample Output:</h4>
+                    <pre>Enter PRF (Hz): 1000
+Enter desired max unambiguous range (km): 50
+
+---- Unambiguous Range and PRF Results ----
+Given PRF = 1000.00 Hz
+Unambiguous range = 150.00 km
+Desired max range = 50.00 km
+Required PRF for R_max = 3000.00 Hz</pre>
+                </div>
+                
+                <!-- Image Upload Section -->
+                <div class="image-upload-section">
+                    <h4>📸 Add Output Images/Graphs</h4>
+                    <p>Upload screenshots of your MATLAB output plots</p>
+                    <div class="upload-controls">
+                        <div class="file-input-wrapper">
+                            <input type="file" id="exp9-file" accept="image/*" onchange="previewImage(9, this)">
+                            <label for="exp9-file" class="file-input-label">Choose Image</label>
+                        </div>
+                        <input type="text" id="exp9-caption" placeholder="Image caption (optional)" style="padding: 10px; border: 1px solid #cbd5e0; border-radius: 6px; width: 250px;">
+                        <button class="add-image-btn" onclick="addImage(9)" disabled id="exp9-add-btn">Add Image</button>
+                    </div>
+                    <div id="exp9-preview" class="image-preview"></div>
+                </div>
+                
+                <div id="exp9-images" class="images-container"></div>
+            </div>
+
+            <!-- EXPERIMENT 10 -->
+            <div class="experiment" id="exp10">
+                <h2>EXPERIMENT 10</h2>
+                <h3>Target Tracking Using Kalman Filter</h3>
+                <div class="aim">
+                    <strong>Aim:</strong> To implement a 1D Kalman filter for tracking the position of a moving target assuming constant velocity, using noisy position measurements, and to compare true position, measured (noisy) position, and estimated (filtered) position.
+                </div>
+                
+                <div class="code-container">
+                    <div class="code-header">
+                        <span>MATLAB Code</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy Code</button>
+                    </div>
+                    <pre><code>% Experiment 10: Target Tracking Using Kalman Filter
+clc; clear; close all;
+
+% ----- User Inputs -----
+N = input('Enter number of time steps (e.g. 50): ');
+dt = input('Enter time step (seconds, e.g. 1): ');
+q = input('Enter process noise variance q (e.g. 0.1): ');
+r = input('Enter measurement noise variance r (e.g. 25): ');
+
+% ----- True Motion (constant velocity) -----
+x_true = zeros(2, N); % [position; velocity]
+x_true(:,1) = [0; 10]; % initial position 0 m, velocity 10 m/s
+for k = 2:N
+    x_true(1,k) = x_true(1,k-1) + x_true(2,k-1)*dt;
+    x_true(2,k) = x_true(2,k-1); % constant velocity
+end
+
+% ----- Measurements (position + noise) -----
+z_meas = x_true(1,:) + sqrt(r)*randn(1, N);
+
+% ----- Kalman Filter Setup -----
+F = [1 dt; 0 1]; % State transition
+H = [1 0]; % Measurement matrix
+Q = q * [dt^4/4 dt^3/2; % Process noise covariance
+         dt^3/2 dt^2];
+R = r; % Measurement noise covariance
+I = eye(2); % Identity matrix
+
+% Initial estimates
+x_hat = zeros(2, N); % Estimated state
+P = eye(2); % Initial covariance
+
+% ----- Kalman Filter Loop -----
+for k = 2:N
+    % Prediction
+    x_pred = F * x_hat(:,k-1);
+    P_pred = F * P * F' + Q;
+    
+    % Kalman Gain
+    K = P_pred * H' / (H * P_pred * H' + R);
+    
+    % Update with measurement
+    x_hat(:,k) = x_pred + K * (z_meas(k) - H * x_pred);
+    P = (I - K * H) * P_pred;
+end
+
+% ----- Time axis -----
+t = (0:N-1) * dt;
+
+% ----- Display some results -----
+final_error = x_true(1,end) - x_hat(1,end);
+fprintf('\n---- Kalman Filter Tracking Results ----\n');
+fprintf('Final true position = %.2f m\n', x_true(1,end));
+fprintf('Final estimated position = %.2f m\n', x_hat(1,end));
+fprintf('Final position error = %.2f m\n', final_error);
+
+% ----- Plot Results -----
+figure;
+plot(t, x_true(1,:), 'b-', 'LineWidth', 1.5); hold on;
+plot(t, z_meas, 'ro');
+plot(t, x_hat(1,:), 'g--', 'LineWidth', 1.5);
+grid on;
+xlabel('Time (s)');
+ylabel('Position (m)');
+title('Target Tracking using Kalman Filter');
+legend('True Position', 'Measured Position', 'Estimated Position');</code></pre>
+                </div>
+                
+                <div class="output">
+                    <h4>Sample Output:</h4>
+                    <pre>Enter number of time steps (e.g. 50): 50
+Enter time step (seconds, e.g. 1): 1
+Enter process noise variance q (e.g. 0.1): 0.1
+Enter measurement noise variance r (e.g. 25): 25
+
+---- Kalman Filter Tracking Results ----
+Final true position = 490.00 m
+Final estimated position = 488.73 m
+Final position error = 1.27 m</pre>
+                </div>
+                
+                <!-- Image Upload Section -->
+                <div class="image-upload-section">
+                    <h4>📸 Add Output Images/Graphs</h4>
+                    <p>Upload screenshots of your MATLAB output plots</p>
+                    <div class="upload-controls">
+                        <div class="file-input-wrapper">
+                            <input type="file" id="exp10-file" accept="image/*" onchange="previewImage(10, this)">
+                            <label for="exp10-file" class="file-input-label">Choose Image</label>
+                        </div>
+                        <input type="text" id="exp10-caption" placeholder="Image caption (optional)" style="padding: 10px; border: 1px solid #cbd5e0; border-radius: 6px; width: 250px;">
+                        <button class="add-image-btn" onclick="addImage(10)" disabled id="exp10-add-btn">Add Image</button>
+                    </div>
+                    <div id="exp10-preview" class="image-preview"></div>
+                </div>
+                
+                <div id="exp10-images" class="images-container"></div>
+            </div>
+
+            <!-- EXPERIMENT 11 -->
+            <div class="experiment" id="exp11">
+                <h2>EXPERIMENT 11</h2>
+                <h3>Analysis of Delay Line Canceller</h3>
+                <div class="aim">
+                    <strong>Aim:</strong> To analyze the frequency response of a 2-pulse delay line canceller used in MTI radar and study its clutter rejection capability by plotting its magnitude response vs normalized Doppler frequency using MATLAB.
+                </div>
+                
+                <div class="code-container">
+                    <div class="code-header">
+                        <span>MATLAB Code</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy Code</button>
+                    </div>
+                    <pre><code>% Experiment 11: Analysis of Delay Line Canceller (MTI Radar)
+clc; clear; close all;
+
+% ----- Normalized Doppler frequency axis -----
+fd = linspace(-1, 1, 1000); % normalized Doppler: f_d * T
+
+% ----- 2-pulse canceller transfer function -----
+H2 = 1 - exp(-1i*2*pi*fd); % H(f) = 1 - e^{-j2πfdT}
+magH2 = abs(H2); % linear magnitude
+magH2_dB = 20*log10(magH2 + eps); % magnitude in dB (eps avoids log(0))
+
+% ----- Example values at specific Doppler frequencies -----
+fd_samples = [0 0.25 0.5 0.75];
+H_samples = 1 - exp(-1i*2*pi*fd_samples);
+mag_samples = abs(H_samples);
+
+% ----- Display some numeric results -----
+fprintf('---- 2-Pulse Delay Line Canceller Magnitude ----\n');
+for k = 1:length(fd_samples)
+    fprintf('fd*T = %.2f -> |H| = %.3f\n', fd_samples(k), mag_samples(k));
+end
+
+% ----- Plot linear magnitude response -----
+figure;
+plot(fd, magH2, 'LineWidth', 1.5);
+grid on;
+xlabel('Normalized Doppler frequency f_d T');
+ylabel('|H(f_d)|');
+title('2-Pulse Delay Line Canceller - Magnitude Response (Linear)');
+ylim([0 2.2]);
+
+% ----- Plot dB magnitude response -----
+figure;
+plot(fd, magH2_dB, 'LineWidth', 1.5);
+grid on;
+xlabel('Normalized Doppler frequency f_d T');
+ylabel('Magnitude |H(f_d)| (dB)');
+title('2-Pulse Delay Line Canceller - Magnitude Response (dB)');</code></pre>
+                </div>
+                
+                <div class="output">
+                    <h4>Sample Output:</h4>
+                    <pre>---- 2-Pulse Delay Line Canceller Magnitude ----
+fd*T = 0.00 -> |H| = 0.000
+fd*T = 0.25 -> |H| = 1.414
+fd*T = 0.50 -> |H| = 2.000
+fd*T = 0.75 -> |H| = 1.414</pre>
+                </div>
+                
+                <!-- Image Upload Section -->
+                <div class="image-upload-section">
+                    <h4>📸 Add Output Images/Graphs</h4>
+                    <p>Upload screenshots of your MATLAB output plots</p>
+                    <div class="upload-controls">
+                        <div class="file-input-wrapper">
+                            <input type="file" id="exp11-file" accept="image/*" onchange="previewImage(11, this)">
+                            <label for="exp11-file" class="file-input-label">Choose Image</label>
+                        </div>
+                        <input type="text" id="exp11-caption" placeholder="Image caption (optional)" style="padding: 10px; border: 1px solid #cbd5e0; border-radius: 6px; width: 250px;">
+                        <button class="add-image-btn" onclick="addImage(11)" disabled id="exp11-add-btn">Add Image</button>
+                    </div>
+                    <div id="exp11-preview" class="image-preview"></div>
+                </div>
+                
+                <div id="exp11-images" class="images-container"></div>
+            </div>
+
+            <!-- EXPERIMENT 12 -->
+            <div class="experiment" id="exp12">
+                <h2>EXPERIMENT 12</h2>
+                <h3>MTI Radar Processing</h3>
+                <div class="aim">
+                    <strong>Aim:</strong> To study the Moving Target Indication (MTI) radar signal processing technique using MATLAB by simulating clutter suppression and target detection through delay-line cancellers and Doppler filtering.
+                </div>
+                
+                <div class="code-container">
+                    <div class="code-header">
+                        <span>MATLAB Code</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy Code</button>
+                    </div>
+                    <pre><code>% Experiment 12: MTI Radar Processing
+clc; clear; close all;
+
+% ----- Parameters -----
+N = 256; % number of pulses
+T = 1e-3; % pulse repetition interval (s)
+fd = linspace(-1,1,N);% normalized Doppler frequency axis
+
+% ----- 2-pulse canceller response -----
+H2 = 1 - exp(-1i*2*pi*fd);
+magH2 = abs(H2);
+
+% ----- 3-pulse canceller response -----
+H3 = 1 - 2*exp(-1i*2*pi*fd) + exp(-1i*4*pi*fd);
+magH3 = abs(H3);
+
+% ----- Plot magnitude responses -----
+figure;
+plot(fd, magH2, 'b', 'LineWidth', 1.5); hold on;
+plot(fd, magH3, 'r--', 'LineWidth', 1.5);
+grid on;
+xlabel('Normalized Doppler frequency f_d T');
+ylabel('Magnitude |H(f_d)|');
+title('MTI Radar Processing - Delay Line Canceller Responses');
+legend('2-Pulse Canceller', '3-Pulse Canceller');
+
+% ----- Example of clutter + moving target signal -----
+t = (0:N-1)*T;
+clutter = 5*cos(2*pi*0*t); % stationary clutter
+target = 2*cos(2*pi*0.25*t); % moving target
+noise = randn(1,N)*0.3;
+x = clutter + target + noise;
+
+% 2-pulse canceller filter
+h = [1 -1];
+y = conv(x,h,'same');
+
+% Plot time-domain signals
+figure;
+plot(t*1e3, x, 'b'); hold on;
+plot(t*1e3, y, 'r');
+xlabel('Time (ms)');
+ylabel('Amplitude');
+title('MTI Radar - Input Signal and After 2-Pulse Canceller');
+legend('Input (with clutter + target)','After MTI Filter');
+grid on;</code></pre>
+                </div>
+                
+                <!-- Image Upload Section -->
+                <div class="image-upload-section">
+                    <h4>📸 Add Output Images/Graphs</h4>
+                    <p>Upload screenshots of your MATLAB output plots</p>
+                    <div class="upload-controls">
+                        <div class="file-input-wrapper">
+                            <input type="file" id="exp12-file" accept="image/*" onchange="previewImage(12, this)">
+                            <label for="exp12-file" class="file-input-label">Choose Image</label>
+                        </div>
+                        <input type="text" id="exp12-caption" placeholder="Image caption (optional)" style="padding: 10px; border: 1px solid #cbd5e0; border-radius: 6px; width: 250px;">
+                        <button class="add-image-btn" onclick="addImage(12)" disabled id="exp12-add-btn">Add Image</button>
+                    </div>
+                    <div id="exp12-preview" class="image-preview"></div>
+                </div>
+                
+                <div id="exp12-images" class="images-container"></div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>&copy; 2025-26 Satellite and Radar Systems Lab | Siddaganga Institute of Technology</p>
+            <p>Department of Electronics and Telecommunication Engineering</p>
+        </footer>
+    </div>
+
+    <script>
+        // Store uploaded images data
+        const imageData = {};
+        
+        function scrollToExp(num) {
+            const element = document.getElementById('exp' + num);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        function copyCode(button) {
+            const codeBlock = button.parentElement.nextElementSibling.querySelector('code');
+            const text = codeBlock.textContent;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                button.textContent = 'Copied!';
+                button.classList.add('copied');
+                
+                setTimeout(() => {
+                    button.textContent = 'Copy Code';
+                    button.classList.remove('copied');
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy:', err);
+            });
+        }
+        
+        function previewImage(expNum, input) {
+            const preview = document.getElementById(`exp${expNum}-preview`);
+            const addBtn = document.getElementById(`exp${expNum}-add-btn`);
+            
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    imageData[expNum] = e.target.result;
+                    preview.innerHTML = `<img src="${e.target.result}" alt="Preview">`;
+                    addBtn.disabled = false;
+                };
+                
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        
+        function addImage(expNum) {
+            const container = document.getElementById(`exp${expNum}-images`);
+            const caption = document.getElementById(`exp${expNum}-caption`).value;
+            const imgSrc = imageData[expNum];
+            
+            if (!imgSrc) return;
+            
+            const imageId = `exp${expNum}-img-${Date.now()}`;
+            const imageHTML = `
+                <div class="image-item" id="${imageId}">
+                    <button class="remove-image-btn" onclick="removeImage('${imageId}')" title="Remove image">✕</button>
+                    <img src="${imgSrc}" alt="Experiment ${expNum} output">
+                    ${caption ? `<div class="image-caption">${caption}</div>` : ''}
+                </div>
+            `;
+            
+            container.innerHTML += imageHTML;
+            
+            // Clear preview and input
+            document.getElementById(`exp${expNum}-preview`).innerHTML = '';
+            document.getElementById(`exp${expNum}-file`).value = '';
+            document.getElementById(`exp${expNum}-caption`).value = '';
+            document.getElementById(`exp${expNum}-add-btn`).disabled = true;
+            delete imageData[expNum];
+        }
+        
+        function removeImage(imageId) {
+            const element = document.getElementById(imageId);
+            if (element && confirm('Remove this image?')) {
+                element.remove();
+            }
+        }
+    </script>
+</body>
+</html>">
                     <h4>📸 Add Output Images/Graphs</h4>
                     <p>Upload screenshots of your MATLAB output plots</p>
                     <div class="upload-controls">
