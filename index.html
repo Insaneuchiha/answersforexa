@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wireless Communication Experiments - Complete Collection</title>
+    <title>Satellite and Radar Systems Experiments - Complete Collection</title>
     <style>
         * {
             margin: 0;
@@ -44,6 +44,13 @@
             opacity: 0.9;
         }
         
+        .student-info {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+        
         nav {
             background: #f8f9fa;
             padding: 20px;
@@ -51,6 +58,132 @@
             position: sticky;
             top: 0;
             z-index: 100;
+        }
+        
+        .image-upload-section {
+            background: #f0f4ff;
+            border: 2px dashed #667eea;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .image-upload-section h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .upload-controls {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+        
+        .file-input-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+        
+        .file-input-wrapper input[type=file] {
+            position: absolute;
+            left: -9999px;
+        }
+        
+        .file-input-label {
+            padding: 10px 20px;
+            background: #667eea;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s;
+            display: inline-block;
+        }
+        
+        .file-input-label:hover {
+            background: #764ba2;
+        }
+        
+        .add-image-btn {
+            padding: 10px 20px;
+            background: #48bb78;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .add-image-btn:hover {
+            background: #38a169;
+        }
+        
+        .add-image-btn:disabled {
+            background: #cbd5e0;
+            cursor: not-allowed;
+        }
+        
+        .image-preview {
+            margin-top: 15px;
+            max-width: 100%;
+        }
+        
+        .image-preview img {
+            max-width: 300px;
+            max-height: 200px;
+            border-radius: 8px;
+            border: 2px solid #667eea;
+        }
+        
+        .images-container {
+            margin: 20px 0;
+        }
+        
+        .image-item {
+            position: relative;
+            margin: 15px 0;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 15px;
+            background: #f7fafc;
+        }
+        
+        .image-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            display: block;
+            margin: 10px auto;
+        }
+        
+        .image-caption {
+            text-align: center;
+            font-style: italic;
+            color: #4a5568;
+            margin-top: 10px;
+        }
+        
+        .remove-image-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #f56565;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+        
+        .remove-image-btn:hover {
+            background: #c53030;
         }
         
         .nav-grid {
@@ -104,6 +237,24 @@
             margin: 15px 0;
             font-style: italic;
             color: #333;
+        }
+        
+        .case-study {
+            background: #fff5e6;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #ff9800;
+        }
+        
+        .case-study h4 {
+            color: #ff9800;
+            margin-bottom: 10px;
+        }
+        
+        .case-study ul {
+            margin-left: 20px;
+            line-height: 1.8;
         }
         
         .code-container {
@@ -200,21 +351,29 @@
 <body>
     <div class="container">
         <header>
-            <h1>📡 Wireless Communication Experiments</h1>
+            <h1>🛰️ Satellite and Radar Systems Experiments</h1>
             <p>Complete MATLAB Code Collection</p>
+            <div class="student-info">
+                <p><strong>Submitted by:</strong> Shesha Kshitij C R (1SI22ET025)</p>
+                <p><strong>Department:</strong> Electronics and Telecommunication Engineering</p>
+                <p><strong>Institution:</strong> Siddaganga Institute of Technology, Tumakuru</p>
+            </div>
         </header>
         
         <nav>
             <div class="nav-grid">
-                <button class="nav-btn" onclick="scrollToExp(1)">Exp 1: Friis Equation</button>
-                <button class="nav-btn" onclick="scrollToExp(2)">Exp 2: Two Ray Model</button>
-                <button class="nav-btn" onclick="scrollToExp(3)">Exp 3: Okumura Model</button>
-                <button class="nav-btn" onclick="scrollToExp(4)">Exp 4: Hata Model</button>
-                <button class="nav-btn" onclick="scrollToExp(5)">Exp 5: Rayleigh BER</button>
-                <button class="nav-btn" onclick="scrollToExp(6)">Exp 6: Multipath Fading</button>
-                <button class="nav-btn" onclick="scrollToExp(7)">Exp 7: TDMA/FDMA/CDMA</button>
-                <button class="nav-btn" onclick="scrollToExp(8)">Exp 8: Delay Spread</button>
-                <button class="nav-btn" onclick="scrollToExp(9)">Exp 9: Baseband Sim</button>
+                <button class="nav-btn" onclick="scrollToExp(1)">Exp 1: Look Angle</button>
+                <button class="nav-btn" onclick="scrollToExp(2)">Exp 2: Loss Estimation</button>
+                <button class="nav-btn" onclick="scrollToExp(3)">Exp 3: CNR Calculations</button>
+                <button class="nav-btn" onclick="scrollToExp(4)">Exp 4: Solar Panels</button>
+                <button class="nav-btn" onclick="scrollToExp(5)">Exp 5: Multiple Access</button>
+                <button class="nav-btn" onclick="scrollToExp(6)">Exp 6: CubeSat</button>
+                <button class="nav-btn" onclick="scrollToExp(7)">Exp 7: Radar Range</button>
+                <button class="nav-btn" onclick="scrollToExp(8)">Exp 8: ROC Curves</button>
+                <button class="nav-btn" onclick="scrollToExp(9)">Exp 9: PRF & Range</button>
+                <button class="nav-btn" onclick="scrollToExp(10)">Exp 10: Kalman Filter</button>
+                <button class="nav-btn" onclick="scrollToExp(11)">Exp 11: Delay Line</button>
+                <button class="nav-btn" onclick="scrollToExp(12)">Exp 12: MTI Radar</button>
             </div>
         </nav>
         
@@ -222,8 +381,9 @@
             <!-- EXPERIMENT 1 -->
             <div class="experiment" id="exp1">
                 <h2>EXPERIMENT 1</h2>
+                <h3>Look Angle Determination for a Given Satellite</h3>
                 <div class="aim">
-                    <strong>Aim:</strong> To analyze the Path Loss and Received Power Using Friis Transmission Equation.
+                    <strong>Aim:</strong> To determine the azimuth and elevation (look) angles of an earth station antenna for a given geostationary satellite longitude using MATLAB.
                 </div>
                 
                 <div class="code-container">
@@ -231,64 +391,85 @@
                         <span>MATLAB Code</span>
                         <button class="copy-btn" onclick="copyCode(this)">Copy Code</button>
                     </div>
-                    <pre><code>clc; clear; close all;
-Pt = input('Enter transmitted power Pt (in Watts): ');
-Gt = input('Enter transmitter gain Gt: ');
-Gr = input('Enter receiver gain Gr: ');
-r = input('Enter distance r (in meters): ');
-f = input('Enter frequency f (in Hz): ');
-c = 3e8;
-lambda = c ./ f;
-Pr = (Pt .* Gt .* Gr .* (lambda.^2)) ./ ((4 * pi * r).^2);
-PL = ((4 * pi * r) ./ lambda).^2;
-fprintf('\nWavelength (lambda): %.4e m\n', lambda);
-fprintf('Received Power (Pr): %.4e W\n', Pr);
-fprintf('Path Loss (PL): %.4e\n', PL);
-fran = linspace(1e8, 10e9, 1000);
-rran = linspace(1, 1000, 1000);
-lambdaf = c ./ fran;
-lambdar = c ./ f;
-PL_f = ((4 * pi * r) ./ lambdaf).^2;
-PL_r = ((4 * pi * rran) ./ lambdar).^2;
-Pr_f = (Pt .* Gt .* Gr .* (lambdaf.^2)) ./ ((4 * pi * r).^2);
-Pr_r = (Pt .* Gt .* Gr .* (lambdar.^2)) ./ ((4 * pi * rran).^2);
-figure;
-subplot(2,2,1);
-plot(fran, 10*log10(PL_f));
-xlabel('Frequency (Hz)'); ylabel('Path Loss (dB)');
-title('Frequency vs Path Loss'); grid on;
-subplot(2,2,2);
-plot(rran, 10*log10(PL_r));
-xlabel('Distance r (m)'); ylabel('Path Loss (dB)');
-title('Distance vs Path Loss'); grid on;
-subplot(2,2,3);
-plot(fran, 10*log10(Pr_f));
-xlabel('Frequency (Hz)'); ylabel('Received Power (dB)');
-title('Frequency vs Received Power'); grid on;
-subplot(2,2,4);
-plot(rran, 10*log10(Pr_r));
-xlabel('Distance r (m)'); ylabel('Received Power (dB)');
-title('Distance vs Received Power'); grid on;</code></pre>
+                    <pre><code>% Experiment 1: Look Angle Determination for a Given Satellite
+clc; clear;
+
+% ----- Input -----
+phi_e = input('Enter earth station longitude φ_E (deg, East +ve): ');
+lambda_e = input('Enter earth station latitude λ_E (deg, North +ve): ');
+phi_ss = input('Enter satellite longitude φ_SS (deg, East +ve): ');
+
+% ----- Constants -----
+R = 6371; % Earth radius in km
+aGSO = 42164; % Geostationary orbit radius in km
+
+% ----- Step 1: Compute B, b, A -----
+B = phi_e - phi_ss;
+b = acosd( cosd(B) * cosd(lambda_e) );
+A = asind( sind(abs(B)) / sind(b) );
+
+% ----- Step 2: Determine Azimuth -----
+if lambda_e < 0 && B < 0
+    Az = A;
+elseif lambda_e < 0 && B > 0
+    Az = 360 - A;
+elseif lambda_e > 0 && B < 0
+    Az = 180 - A;
+else
+    Az = 180 + A;
+end
+
+% ----- Step 3: Range & Elevation -----
+d = sqrt( R^2 + aGSO^2 - 2*R*aGSO*cosd(b) );
+El = acosd( aGSO * sind(b) / d );
+
+% ----- Output -----
+fprintf('\n---- Look Angle Results ----\n');
+fprintf('Azimuth Az = %.2f deg\n', Az);
+fprintf('Elevation El = %.2f deg\n', El);
+fprintf('Range d = %.2f km\n', d);</code></pre>
                 </div>
                 
                 <div class="output">
                     <h4>Sample Output:</h4>
-                    <pre>Enter transmitted power Pt (in Watts): 50
-Enter transmitter gain Gt: 1
-Enter receiver gain Gr: 1
-Enter distance r (in meters): 100
-Enter frequency f (in Hz): 900e6
-Wavelength (lambda): 3.3333e-01 m
-Received Power (Pr): 3.5181e-06 W
-Path Loss (PL): 1.4212e+07</pre>
+                    <pre>Enter earth station longitude φ_E (deg, East +ve): -100
+Enter earth station latitude λ_E (deg, North +ve): 35
+Enter satellite longitude φ_SS (deg, East +ve): -90
+
+---- Look Angle Results ----
+Azimuth Az = 162.90 deg
+Elevation El = 48.00 deg
+Range d = 37215.00 km</pre>
                 </div>
+                
+                <!-- Image Upload Section -->
+                <div class="image-upload-section">
+                    <h4>📸 Add Output Images/Graphs</h4>
+                    <p>Upload screenshots of your MATLAB output plots</p>
+                    <div class="upload-controls">
+                        <div class="file-input-wrapper">
+                            <input type="file" id="exp1-file" accept="image/*" onchange="previewImage(1, this)">
+                            <label for="exp1-file" class="file-input-label">Choose Image</label>
+                        </div>
+                        <input type="text" id="exp1-caption" placeholder="Image caption (optional)" style="padding: 10px; border: 1px solid #cbd5e0; border-radius: 6px; width: 250px;">
+                        <button class="add-image-btn" onclick="addImage(1)" disabled id="exp1-add-btn">Add Image</button>
+                    </div>
+                    <div id="exp1-preview" class="image-preview"></div>
+                </div>
+                
+                <div id="exp1-images" class="images-container"></div>
             </div>
 
             <!-- EXPERIMENT 2 -->
             <div class="experiment" id="exp2">
                 <h2>EXPERIMENT 2</h2>
+                <h3>Losses Estimation and Rain Loss Predictions</h3>
                 <div class="aim">
-                    <strong>Aim:</strong> To design a Two Ray Transmission Model.
+                    <strong>Aim:</strong> To estimate total transmission loss for a satellite link by calculating:
+                    <ol style="margin-left: 20px; margin-top: 10px;">
+                        <li>Free-space path loss</li>
+                        <li>Rain attenuation (in dB)</li>
+                    </ol>
                 </div>
                 
                 <div class="code-container">
@@ -296,39 +477,126 @@ Path Loss (PL): 1.4212e+07</pre>
                         <span>MATLAB Code</span>
                         <button class="copy-btn" onclick="copyCode(this)">Copy Code</button>
                     </div>
-                    <pre><code>clc; clear; close all;
-Pt = input('Enter transmitted power Pt (in Watts): ');
-Gt = input('Enter transmitter gain Gt: ');
-Gr = input('Enter receiver gain Gr: ');
-ht = input('Enter transmitter height ht: ');
-hr = input('Enter receiver height hr: ');
-d = input('Enter distance d: ');
-tworay_Pr = (Pt * Gt * Gr * ((ht*hr) / d^2)^2)
-rran = linspace(1, 6000, 10000);
-tworay_Pr = Pt * Gt * Gr * ((ht*hr).^2 ./ rran.^4);
-plot(rran, 10*log10(tworay_Pr));
-xlabel('Distance'); ylabel('Two Ray Received Power (dB)');
-title('Distance vs Received Power');
-legend('Two Ray Model');</code></pre>
+                    <pre><code>% Experiment 2: Loss estimation and rain loss prediction
+% Based on Dennis Roddy, Example 4.1 (Chapter 4 - Radio Wave Propagation)
+clc; clear;
+
+% -------- Input --------
+% Frequency (GHz) and path length (km) for free-space loss
+f_GHz = input('Enter frequency (GHz): '); % e.g. 12
+d_km = input('Enter link distance d (km): '); % e.g. 38000
+
+% Rain parameters (similar to Example 4.1)
+El = input('Enter elevation angle El (deg): '); % e.g. 50
+h0 = input('Enter earth station height h0 (km): '); % e.g. 0.6
+hR = input('Enter rain height hR (km): '); % e.g. 3.0
+Rp = input('Enter point rain rate Rp (mm/h): '); % e.g. 10
+p = 0.01; % percentage of time (0.01%)
+
+% Choose polarization: 'H' or 'V'
+pol = upper(input('Enter polarization (H/V): ','s'));
+
+% -------- Constants a, b for 12 GHz from Table 4.2 --------
+% (Dennis Roddy, Chapter 4, Table 4.2)
+% Horizontal: a_h = 0.0188, b_h = 1.217
+% Vertical : a_v = 0.0168, b_v = 1.20
+if pol == 'H'
+    a = 0.0188;
+    b = 1.217;
+elseif pol == 'V'
+    a = 0.0168;
+    b = 1.20;
+else
+    error('Polarization must be H or V');
+end
+
+% -------- (A) Free-space path loss --------
+FSPL_dB = 92.45 + 20*log10(d_km) + 20*log10(f_GHz);
+
+% -------- (B) Rain attenuation (Roddy model) --------
+% Slant path length through rain
+Ls = (hR - h0) ./ sind(El); % km
+
+% Horizontal projection
+Lg = Ls .* cosd(El); % km
+
+% Reduction factor for p = 0.01%
+rp = 90 ./ (90 + 4*Lg);
+
+% Specific attenuation gamma_p
+gamma_p = a * (Rp.^b); % dB/km
+
+% Effective path length and attenuation
+L_eff = Ls .* rp; % km
+A_rain = gamma_p .* L_eff; % dB
+
+% -------- Output --------
+fprintf('\n---- Loss Estimation Results ----\n');
+fprintf('Frequency = %.2f GHz\n', f_GHz);
+fprintf('Link distance = %.0f km\n', d_km);
+fprintf('Free-space path loss = %.2f dB\n\n', FSPL_dB);
+
+fprintf('Elevation angle El = %.2f deg\n', El);
+fprintf('Station height h0 = %.3f km\n', h0);
+fprintf('Rain height hR = %.3f km\n', hR);
+fprintf('Rain rate Rp = %.2f mm/h\n', Rp);
+fprintf('Polarization = %s\n', pol);
+fprintf('Slant path Ls = %.3f km\n', Ls);
+fprintf('Reduction factor rp = %.4f\n', rp);
+fprintf('Effective path L_eff = %.3f km\n', L_eff);
+fprintf('Rain attenuation A_p = %.3f dB\n', A_rain);</code></pre>
                 </div>
                 
                 <div class="output">
                     <h4>Sample Output:</h4>
-                    <pre>Enter transmitted power Pt (in Watts): 13
-Enter transmitter gain Gt: 2.55
-Enter receiver gain Gr: 1
-Enter transmitter height ht: 50
-Enter receiver height hr: 1.5
-Enter distance d: 5e3
-tworay_Pr = 2.9835e-10</pre>
+                    <pre>Enter frequency (GHz): 12
+Enter link distance d (km): 38000
+Enter elevation angle El (deg): 50
+Enter earth station height h0 (km): 0.6
+Enter rain height hR (km): 3
+Enter point rain rate Rp (mm/h): 10
+Enter polarization (H/V): H
+
+---- Loss Estimation Results ----
+Frequency = 12.00 GHz
+Link distance = 38000 km
+Free-space path loss = 206.19 dB
+
+Elevation angle El = 50.00 deg
+Station height h0 = 0.600 km
+Rain height hR = 3.000 km
+Rain rate Rp = 10.00 mm/h
+Polarization = H
+Slant path Ls = 3.133 km
+Reduction factor rp = 0.9178
+Effective path L_eff = 2.874 km
+Rain attenuation A_p = 0.891 dB</pre>
                 </div>
+                
+                <!-- Image Upload Section -->
+                <div class="image-upload-section">
+                    <h4>📸 Add Output Images/Graphs</h4>
+                    <p>Upload screenshots of your MATLAB output plots</p>
+                    <div class="upload-controls">
+                        <div class="file-input-wrapper">
+                            <input type="file" id="exp2-file" accept="image/*" onchange="previewImage(2, this)">
+                            <label for="exp2-file" class="file-input-label">Choose Image</label>
+                        </div>
+                        <input type="text" id="exp2-caption" placeholder="Image caption (optional)" style="padding: 10px; border: 1px solid #cbd5e0; border-radius: 6px; width: 250px;">
+                        <button class="add-image-btn" onclick="addImage(2)" disabled id="exp2-add-btn">Add Image</button>
+                    </div>
+                    <div id="exp2-preview" class="image-preview"></div>
+                </div>
+                
+                <div id="exp2-images" class="images-container"></div>
             </div>
 
             <!-- EXPERIMENT 3 -->
             <div class="experiment" id="exp3">
                 <h2>EXPERIMENT 3</h2>
+                <h3>CNR (Carrier to Noise Ratio) Calculations for Satellite Links</h3>
                 <div class="aim">
-                    <strong>Aim:</strong> To design an Okumura Model.
+                    <strong>Aim:</strong> To calculate the carrier-to-noise density ratio (C/N₀) and the carrier-to-noise ratio (C/N) for a satellite link using EIRP of the transmitter, G/T of the receiving station, total link losses, and noise bandwidth.
                 </div>
                 
                 <div class="code-container">
@@ -336,44 +604,77 @@ tworay_Pr = 2.9835e-10</pre>
                         <span>MATLAB Code</span>
                         <button class="copy-btn" onclick="copyCode(this)">Copy Code</button>
                     </div>
-                    <pre><code>clc; clear all;
-f = input('Enter frequency f: ');
-d = input('Enter distance d: ');
-ht = input('Enter transmitter height ht: ');
-hr = input('Enter receiver height hr: ');
-a = input('Enter median attenuation a: ');
-gA = input('Enter area gain gA (dB): ');
+                    <pre><code>% Experiment 3: CNR calculations for satellite links
+clc; clear;
 
-Lf = 20*log10(((3*10^8)/f)./(4*pi*d));
+% Input section
+EIRP_sat = input('Enter satellite saturation EIRP (dBW): '); % e.g. 25
+BO_out = input('Enter output back-off (dB): '); % e.g. 6
+FSL = input('Enter free-space loss (dB): '); % e.g. 196
+L_other = input('Enter other downlink losses (dB): '); % e.g. 1.5
+GT = input('Enter earth station G/T (dB/K): '); % e.g. 41
+B_Hz = input('Enter noise bandwidth B (Hz): '); % e.g. 36e6
 
-if ht > 30 && ht < 1000
-    ght = 20*log10(ht/200);
-else
-    ght = 0;
-end
+% Link calculations
+EIRP = EIRP_sat - BO_out; % Effective EIRP
+L_total = FSL + L_other; % Total losses
+CN0_dBHz = EIRP + GT - L_total + 228.6; % C/N0 in dBHz
+BN_dB = 10*log10(B_Hz); % Bandwidth in dBHz
+CN_dB = CN0_dBHz - BN_dB; % Final C/N in dB
 
-fprintf('Free space path loss = %.7f\n', Lf);
-fprintf('Transmitter height gain = %.4f\n', ght);</code></pre>
+% Output results
+fprintf('\n---- CNR Calculation Results ----\n');
+fprintf('Effective EIRP = %.2f dBW\n', EIRP);
+fprintf('Total link losses = %.2f dB\n', L_total);
+fprintf('Earth station G/T = %.2f dB/K\n', GT);
+fprintf('Noise bandwidth B = %.2e Hz\n\n', B_Hz);
+fprintf('Carrier-to-noise density ratio C/N0 = %.2f dBHz\n', CN0_dBHz);
+fprintf('Carrier-to-noise ratio C/N = %.2f dB\n', CN_dB);</code></pre>
                 </div>
                 
                 <div class="output">
                     <h4>Sample Output:</h4>
-                    <pre>Enter frequency f: 900000000
-Enter distance d: 50000
-Enter transmitter height ht: 100
-Enter receiver height hr: 10
-Enter median attenuation a: 43
-Enter area gain gA (dB): 9
-Free space path loss = 125.5060225
-Median path loss(50%) = 165.5266</pre>
+                    <pre>Enter satellite saturation EIRP (dBW): 25
+Enter output back-off (dB): 6
+Enter free-space loss (dB): 196
+Enter other downlink losses (dB): 1.5
+Enter earth station G/T (dB/K): 41
+Enter noise bandwidth B (Hz): 36e6
+
+---- CNR Calculation Results ----
+Effective EIRP = 19.00 dBW
+Total link losses = 197.50 dB
+Earth station G/T = 41.00 dB/K
+Noise bandwidth B = 3.60e+07 Hz
+
+Carrier-to-noise density ratio C/N0 = 91.10 dBHz
+Carrier-to-noise ratio C/N = 15.54 dB</pre>
                 </div>
+                
+                <!-- Image Upload Section -->
+                <div class="image-upload-section">
+                    <h4>📸 Add Output Images/Graphs</h4>
+                    <p>Upload screenshots of your MATLAB output plots</p>
+                    <div class="upload-controls">
+                        <div class="file-input-wrapper">
+                            <input type="file" id="exp3-file" accept="image/*" onchange="previewImage(3, this)">
+                            <label for="exp3-file" class="file-input-label">Choose Image</label>
+                        </div>
+                        <input type="text" id="exp3-caption" placeholder="Image caption (optional)" style="padding: 10px; border: 1px solid #cbd5e0; border-radius: 6px; width: 250px;">
+                        <button class="add-image-btn" onclick="addImage(3)" disabled id="exp3-add-btn">Add Image</button>
+                    </div>
+                    <div id="exp3-preview" class="image-preview"></div>
+                </div>
+                
+                <div id="exp3-images" class="images-container"></div>
             </div>
 
             <!-- EXPERIMENT 4 -->
             <div class="experiment" id="exp4">
                 <h2>EXPERIMENT 4</h2>
+                <h3>Design of Solar Panels for Given Requirements</h3>
                 <div class="aim">
-                    <strong>Aim:</strong> To implement the Hata Model for Path Loss Prediction.
+                    <strong>Aim:</strong> To design a solar power subsystem for a satellite by determining the required solar array output power, array area, and number of solar cells for a specified payload power and system efficiency.
                 </div>
                 
                 <div class="code-container">
@@ -381,668 +682,56 @@ Median path loss(50%) = 165.5266</pre>
                         <span>MATLAB Code</span>
                         <button class="copy-btn" onclick="copyCode(this)">Copy Code</button>
                     </div>
-                    <pre><code>clc; clear; close all;
-f = input('Enter frequency in MHz (150 - 1500): ');
-hb = input('Enter base station antenna height in meters (30 - 200): ');
-hm = input('Enter mobile station antenna height in meters (1 - 10): ');
-area = input('Enter environment type (urban, suburban, open): ', 's');
+                    <pre><code>% Experiment 4: Design of Solar Panels for Given Requirements
+clc; clear;
 
-if f < 150 || f > 1500
-    error('Frequency out of range (150-1500 MHz)');
-end
-if hb < 30 || hb > 200
-    error('Base station antenna height out of range (30-200 m)');
-end
-if hm < 1 || hm > 10
-    error('Mobile station antenna height out of range (1-10 m)');
-end
+% ----- Input -----
+P_payload = input('Enter payload power (W): '); % e.g. 800
+eta_bus = input('Enter bus efficiency (0-1): '); % e.g. 0.85
+eta_dist = input('Enter distribution efficiency (0-1): ');% e.g. 0.90
+eta_cell = input('Enter solar cell efficiency (0-1): '); % e.g. 0.18
+eta_deg = input('Enter degradation factor (0-1): '); % e.g. 0.77
+V_bus = input('Enter required bus voltage (V): '); % e.g. 28
+V_cell = input('Enter single cell voltage (V): '); % e.g. 0.6
+strings = input('Enter number of parallel strings: '); % e.g. 5
 
-valid_areas = {'urban', 'suburban', 'open'};
-if ~ismember(lower(area), valid_areas)
-    error('Invalid environment type. Choose urban, suburban, or open');
-end
+% ----- Calculations -----
+G = 1367; % Solar constant W/m^2
+P_total = P_payload / (eta_bus * eta_dist); % Total required power
+P_area = G * eta_cell * eta_deg; % Power per m^2
+A = P_total / P_area; % Required array area (m^2)
+N_series = ceil(V_bus / V_cell); % Cells in series
+N_total = N_series * strings; % Total number of cells
 
-d = 1:1:20;
-a_hm = (1.1*log10(f) - 0.7)*hm - (1.56*log10(f) - 0.8);
-
-switch lower(area)
-    case 'urban'
-        C = 0;
-    case 'suburban'
-        C = -2*(log10(f/28))^2 - 5.4;
-    case 'open'
-        C = -4.78*(log10(f))^2 + 18.33*log10(f) - 40.94;
-end
-
-L = 69.55 + 26.16*log10(f) - 13.82*log10(hb) - a_hm + ...
-    (44.9 - 6.55*log10(hb)).*log10(d) + C;
-
-figure;
-plot(d, L, 'b-', 'LineWidth', 2);
-grid on;
-xlabel('Distance (km)');
-ylabel('Path Loss (dB)');
-title(sprintf('Hata Model Path Loss vs Distance at %d MHz (%s)', f, area));
-xlim([1 20]);
-ylim([min(L)-10 max(L)+10]);
-legend('Hata Model');
-
-fprintf('Hata model path loss computed for frequency %d MHz and environment (%s)\n', f, area);</code></pre>
+% ----- Output -----
+fprintf('\n---- Solar Panel Design Results ----\n');
+fprintf('Payload power = %.2f W\n', P_payload);
+fprintf('Total required power = %.2f W\n', P_total);
+fprintf('Power per m^2 of array = %.2f W/m^2\n', P_area);
+fprintf('Required array area = %.2f m^2\n', A);
+fprintf('Cells per string (series)= %d\n', N_series);
+fprintf('Total number of cells = %d\n', N_total);</code></pre>
                 </div>
                 
                 <div class="output">
                     <h4>Sample Output:</h4>
-                    <pre>Enter frequency in MHz (150 - 1500): 900
-Enter base station antenna height in meters (30 - 200): 100
-Enter mobile station antenna height in meters (1 - 10): 10
-Enter environment type (urban, suburban, open): suburban
-Hata model path loss computed for frequency 900 MHz and environment (suburban)</pre>
-                </div>
-            </div>
+                    <pre>Enter payload power (W): 800
+Enter bus efficiency (0-1): 0.85
+Enter distribution efficiency (0-1): 0.90
+Enter solar cell efficiency (0-1): 0.18
+Enter degradation factor (0-1): 0.77
+Enter required bus voltage (V): 28
+Enter single cell voltage (V): 0.6
+Enter number of parallel strings: 5
 
-            <!-- EXPERIMENT 5 -->
-            <div class="experiment" id="exp5">
-                <h2>EXPERIMENT 5</h2>
-                <div class="aim">
-                    <strong>Aim:</strong> To calculate BER of Multipath Rayleigh Fading Channel.
-                </div>
-                
-                <div class="code-container">
-                    <div class="code-header">
-                        <span>MATLAB Code</span>
-                        <button class="copy-btn" onclick="copyCode(this)">Copy Code</button>
-                    </div>
-                    <pre><code>clear; clc; close all;
-%% Parameters
-numBits = 1e5; % Number of bits
-M = 2; % Modulation order (2=BPSK, 4=QPSK)
-EbN0dB = 0:2:20; % SNR range
-numPaths = 3; % Multipath components
-fadePowerdB = [0 -3 -6]; % Path power profile in dB
-delays = [0 2 4]; % Path delays in samples
-
-% Convert to linear
-pathGains = 10.^(fadePowerdB/10);
-
-%% Generate random bits and modulate
-bits = randi([0 M-1], numBits, 1);
-if M == 2
-    txSymbols = pskmod(bits, M); % BPSK
-else
-    txSymbols = pskmod(bits, M, pi/4); % QPSK
-end
-
-%% Loop over Eb/N0
-berSim = zeros(size(EbN0dB));
-for snrIdx = 1:length(EbN0dB)
-    % Convert Eb/N0 to noise variance
-    EbN0 = 10^(EbN0dB(snrIdx)/10);
-    noiseVar = 1/(2*EbN0);
-    
-    % Generate fading channel
-    h = zeros(numPaths, numBits);
-    for p = 1:numPaths
-        h(p,:) = sqrt(pathGains(p)/2) * ...
-            (randn(1,numBits) + 1i*randn(1,numBits));
-    end
-    
-    % Pass through multipath fading channel
-    rxSig = zeros(1, numBits+max(delays));
-    for p = 1:numPaths
-        rxSig(delays(p)+1:delays(p)+numBits) = ...
-            rxSig(delays(p)+1:delays(p)+numBits) + h(p,:) .* txSymbols.';
-    end
-    
-    % Add AWGN
-    noise = sqrt(noiseVar) * (randn(size(rxSig)) + 1i*randn(size(rxSig)));
-    rxSig = rxSig + noise;
-    
-    % For simplicity → take first path only (flat fading assumption)
-    rxFlat = rxSig(1:numBits);
-    
-    % Equalization (remove fading effect by division)
-    rxEq = rxFlat.' ./ (h(1,:).');
-    
-    % Demodulate
-    rxBits = pskdemod(rxEq, M, pi*(M==4)/4);
-    
-    % BER calculation
-    berSim(snrIdx) = sum(bits ~= rxBits) / numBits;
-end
-
-%% Plot BER Curve
-figure;
-semilogy(EbN0dB, berSim, 'bo-','LineWidth',1.5); hold on;
-grid on;
-EbN0 = 10.^(EbN0dB/10);
-
-% Theoretical BER (BPSK Rayleigh fading)
-if M == 2
-    berTheory = 0.5*(1 - sqrt(EbN0./(1+EbN0)));
-    semilogy(EbN0dB, berTheory, 'r--','LineWidth',1.5);
-    legend('Simulated BER','Theoretical BER (Rayleigh)');
-else
-    legend('Simulated BER');
-end
-
-xlabel('Eb/N0 (dB)');
-ylabel('Bit Error Rate (BER)');
-title('BER Performance over Multipath Rayleigh Fading Channel');</code></pre>
-                </div>
-            </div>
-
-            <!-- EXPERIMENT 6 -->
-            <div class="experiment" id="exp6">
-                <h2>EXPERIMENT 6</h2>
-                <div class="aim">
-                    <strong>Aim:</strong> To develop a Multipath Rayleigh Fading Channel.
+---- Solar Panel Design Results ----
+Payload power = 800.00 W
+Total required power = 1045.75 W
+Power per m^2 of array = 189.09 W/m^2
+Required array area = 5.53 m^2
+Cells per string (series)= 47
+Total number of cells = 235</pre>
                 </div>
                 
-                <div class="code-container">
-                    <div class="code-header">
-                        <span>MATLAB Code</span>
-                        <button class="copy-btn" onclick="copyCode(this)">Copy Code</button>
-                    </div>
-                    <pre><code>%% Multipath Rayleigh Fading Channel Simulation
-clear; clc; close all;
-
-%% Simulation Parameters
-numSamples = 2000; % Number of samples
-numPaths = 4; % Number of multipath components
-fadePower = [0 -3 -6 -9]; % Path power in dB (relative)
-delays = [0 2 4 7]; % Path delays in samples
-
-% Convert power from dB to linear
-pathGains = 10.^(fadePower/10);
-
-%% Generate Rayleigh fading coefficients (time-varying)
-h = zeros(numPaths, numSamples);
-for p = 1:numPaths
-    h(p,:) = sqrt(pathGains(p)/2) * ...
-        (randn(1,numSamples) + 1i*randn(1,numSamples));
-end
-
-%% Generate Transmit Signal (QPSK symbols for demo)
-M = 4; % QPSK
-data = randi([0 M-1], 1, numSamples);
-txSignal = pskmod(data, M, pi/4); % Gray-coded QPSK
-
-%% Apply Multipath Fading Channel
-rxSignal = zeros(1, numSamples + max(delays));
-for p = 1:numPaths
-    rxSignal(delays(p)+1:delays(p)+numSamples) = ...
-        rxSignal(delays(p)+1:delays(p)+numSamples) + ...
-        h(p,:) .* txSignal;
-end
-
-%% Plot Results
-t = 1:numSamples;
-
-% 1. Transmitted vs Received signals
-figure;
-subplot(2,1,1);
-plot(real(txSignal(1:200)), 'b'); hold on;
-plot(imag(txSignal(1:200)), 'r');
-title('Transmitted QPSK Signal (first 200 samples)');
-legend('In-phase','Quadrature');
-xlabel('Samples'); ylabel('Amplitude');
-
-subplot(2,1,2);
-plot(real(rxSignal(1:200)), 'b'); hold on;
-plot(imag(rxSignal(1:200)), 'r');
-title('Received Signal after Multipath Fading (first 200 samples)');
-legend('In-phase','Quadrature');
-xlabel('Samples'); ylabel('Amplitude');
-
-% 2. Channel Impulse Response (snapshot)
-figure;
-stem(delays, sqrt(pathGains), 'filled');
-title('Channel Power Delay Profile');
-xlabel('Delay (samples)'); ylabel('Relative Gain');
-
-% 3. Frequency Response of the Channel
-Hf = fft(sum(h,1), 512);
-f = linspace(-0.5,0.5,length(Hf));
-figure;
-plot(f, 20*log10(abs(fftshift(Hf))));
-title('Frequency Response of Multipath Channel');
-xlabel('Normalized Frequency'); ylabel('Magnitude (dB)'); grid on;
-
-% 4. Received Constellation
-figure;
-plot(real(rxSignal(500:end)), imag(rxSignal(500:end)), '.');
-title('Received Signal Constellation under Multipath Fading');
-xlabel('In-phase'); ylabel('Quadrature'); grid on;</code></pre>
-                </div>
-            </div>
-
-            <!-- EXPERIMENT 7 -->
-            <div class="experiment" id="exp7">
-                <h2>EXPERIMENT 7</h2>
-                <div class="aim">
-                    <strong>Aim:</strong> To model and simulate TDMA, FDMA and CDMA for wireless communication.
-                </div>
-                
-                <h3>Part 1: TDMA - Time Division Multiple Access</h3>
-                <div class="code-container">
-                    <div class="code-header">
-                        <span>MATLAB Code</span>
-                        <button class="copy-btn" onclick="copyCode(this)">Copy Code</button>
-                    </div>
-                    <pre><code>% TDMA Simulation
-clc; clear; close all;
-
-% Step 1: Define System Parameters
-numUsers = 4;
-timeSlotDuration = 1; % seconds
-totalTimeSlots = 10;
-channelGain = 0.8;
-
-% Step 2: Generate User Traffic
-userData = randi([0, 1], numUsers, totalTimeSlots);
-
-% Step 3: Create Time Slots
-timeSlots = linspace(0, timeSlotDuration*totalTimeSlots, totalTimeSlots);
-
-% Step 4: Allocate Time Slots to Users
-userSlots = mod(0:totalTimeSlots-1, numUsers) + 1;
-
-% Step 5: Simulate Transmission
-receivedData = zeros(numUsers, totalTimeSlots);
-for slot = 1:totalTimeSlots
-    for user = 1:numUsers
-        if userSlots(slot) == user
-            % Simulate transmission for the current user in the time slot
-            transmittedData = userData(user, slot);
-            % Simulate channel effects
-            receivedData(user, slot) = transmittedData * channelGain;
-        end
-    end
-end
-
-% Step 6: Evaluate Performance Metrics (e.g., BER)
-bitErrorRate = sum(sum(xor(receivedData, userData))) / (numUsers * totalTimeSlots);
-
-% Step 7: Visualize Results
-figure;
-subplot(2, 1, 1);
-stem(timeSlots, userData');
-title('User Traffic');
-xlabel('Time (s)'); ylabel('Data');
-legend('User 1', 'User 2', 'User 3', 'User 4');
-
-subplot(2, 1, 2);
-stem(timeSlots, receivedData');
-title('Received Data');
-xlabel('Time (s)'); ylabel('Data');
-legend('User 1', 'User 2', 'User 3', 'User 4');
-
-disp(['Bit Error Rate: ', num2str(bitErrorRate)]);</code></pre>
-                </div>
-                
-                <h3>Part 2: FDMA - Frequency Division Multiple Access</h3>
-                <div class="code-container">
-                    <div class="code-header">
-                        <span>MATLAB Code</span>
-                        <button class="copy-btn" onclick="copyCode(this)">Copy Code</button>
-                    </div>
-                    <pre><code>% FDMA Simulation
-clc; clear; close all;
-
-% System parameters
-totalBandwidth = 10e6; % Total available bandwidth (Hz)
-numUsers = 5; % Number of users
-carrierFrequency = 1e6; % Carrier frequency (Hz)
-userBandwidth = totalBandwidth / numUsers; % Bandwidth allocated to each user (Hz)
-
-% Time parameters
-samplingFrequency = 100e6; % Sampling frequency (Hz)
-timeDuration = 1e-3; % Simulation duration (s)
-time = 0:1/samplingFrequency:timeDuration;
-
-% Generate user signals
-userSignals = zeros(numUsers, length(time));
-for i = 1:numUsers
-    userFrequency = carrierFrequency + (i-1) * userBandwidth;
-    userSignals(i, :) = sin(2*pi*userFrequency*time);
-end
-
-% Create the FDMA signal
-fdmaSignal = sum(userSignals, 1);
-
-% Add noise to the FDMA signal
-snr = 10; % Signal-to-Noise Ratio (in dB)
-noisySignal = awgn(fdmaSignal, snr, 'measured');
-
-% Perform signal demodulation
-demodulatedSignals = zeros(numUsers, length(time));
-for i = 1:numUsers
-    userFrequency = carrierFrequency + (i-1) * userBandwidth;
-    demodulatedSignals(i, :) = noisySignal .* sin(2*pi*userFrequency*time);
-end
-
-% Plot the original user signals and the demodulated signals
-figure;
-subplot(numUsers+1, 1, 1);
-plot(time, fdmaSignal);
-title('FDMA Signal');
-xlabel('Time (s)'); ylabel('Amplitude');
-
-for i = 1:numUsers
-    subplot(numUsers+1, 1, i+1);
-    plot(time, demodulatedSignals(i, :));
-    title(['Demodulated Signal - User ', num2str(i)]);
-    xlabel('Time (s)'); ylabel('Amplitude');
-end</code></pre>
-                </div>
-                
-                <h3>Part 3: CDMA - Code Division Multiple Access</h3>
-                <div class="code-container">
-                    <div class="code-header">
-                        <span>MATLAB Code</span>
-                        <button class="copy-btn" onclick="copyCode(this)">Copy Code</button>
-                    </div>
-                    <pre><code>% CDMA Simulation
-clc; clear; close all;
-
-% CDMA Simulation Parameters
-numBits = 1000; % Number of bits per user
-chipRate = 1e6; % Chip rate (chips per second)
-snr = 10;
-
-% Generate random data bits for User 1 and User 2
-user1Bits = randi([0, 1], 1, numBits);
-user2Bits = randi([0, 1], 1, numBits);
-
-% BPSK Modulation
-user1Symbols = 2 * user1Bits - 1; % Map 0s to -1 and 1s to 1
-user2Symbols = 2 * user2Bits - 1;
-
-% Chip-level Spreading (using a simple chip sequence)
-chipSequence = [1, -1, 1, 1, -1, 1, -1, -1]; % Chip sequence for spreading
-user1SpreadSymbols = kron(user1Symbols, chipSequence);
-user2SpreadSymbols = kron(user2Symbols, chipSequence);
-
-% Add AWGN (Additive White Gaussian Noise)
-noiseVar = 10^(-snr/10); % Noise variance
-user1NoisySymbols = user1SpreadSymbols + sqrt(noiseVar/2) * randn(1, length(user1SpreadSymbols));
-user2NoisySymbols = user2SpreadSymbols + sqrt(noiseVar/2) * randn(1, length(user2SpreadSymbols));
-
-% Matched Filtering (correlation with chip sequence)
-user1FilteredSymbols = filter(fliplr(chipSequence), 1, user1NoisySymbols);
-user2FilteredSymbols = filter(fliplr(chipSequence), 1, user2NoisySymbols);
-
-% Symbol Detection (using correlation with chip sequence)
-user1DetectedBits = user1FilteredSymbols(1:length(user1Symbols)) > 0;
-user2DetectedBits = user2FilteredSymbols(1:length(user2Symbols)) > 0;
-
-% Bit Error Rate (BER) Calculation
-berUser1 = sum(user1DetectedBits ~= user1Bits) / numBits;
-berUser2 = sum(user2DetectedBits ~= user2Bits) / numBits;
-
-% Display results
-disp(['User 1 BER: ', num2str(berUser1)]);
-disp(['User 2 BER: ', num2str(berUser2)]);</code></pre>
-                </div>
-                
-                <div class="output">
-                    <h4>Sample Output:</h4>
-                    <pre>User 1 BER: 0.538
-User 2 BER: 0.495</pre>
-                </div>
-            </div>
-
-            <!-- EXPERIMENT 8 -->
-            <div class="experiment" id="exp8">
-                <h2>EXPERIMENT 8</h2>
-                <div class="aim">
-                    <strong>Aim:</strong> To compute Mean Excess Delay, RMS Delay Spread, and Coherence Bandwidth.
-                </div>
-                
-                <div class="code-container">
-                    <div class="code-header">
-                        <span>MATLAB Code</span>
-                        <button class="copy-btn" onclick="copyCode(this)">Copy Code</button>
-                    </div>
-                    <pre><code>clc; clear; close all;
-disp('--- Power Delay Profile (PDP) Analysis ---');
-tau = input('Enter the path delays [in μs] as a vector (e.g., [0 1 2 5]): ');
-P_dB = input('Enter the corresponding powers [in dB] (e.g., [-20 -10 -10 0]): ');
-
-% Check that the lengths match
-if length(tau) ~= length(P_dB)
-    error('Error: The number of delay values must match the number of power values.');
-end
-
-% Convert dB to linear scale
-P = 10.^(P_dB / 10);
-
-% Mean excess delay
-tau_mean = sum(P .* tau) / sum(P);
-
-% Second moment of delay
-tau_sq_mean = sum(P .* tau.^2) / sum(P);
-
-% RMS delay spread
-tau_rms = sqrt(tau_sq_mean - tau_mean^2);
-
-% Coherence bandwidth (50% correlation)
-Bc = 1 / (5 * tau_rms); % in MHz (since tau is in μs)
-Bc = Bc * 1e6; % convert to Hz
-
-% Display results
-fprintf('\n--- Computed Results ---\n');
-fprintf('Mean Excess Delay = %.3f μs\n', tau_mean);
-fprintf('RMS Delay Spread = %.3f μs\n', tau_rms);
-fprintf('Coherence BW (50%%) = %.2f kHz\n', Bc/1e3);
-
-% Suitability check
-if Bc >= 30e3
-    fprintf('✓ Suitable for AMPS (>=30 kHz)\n');
-else
-    fprintf('✗ Not suitable for AMPS\n');
-end
-
-if Bc >= 200e3
-    fprintf('✓ Suitable for GSM (>=200 kHz)\n');
-else
-    fprintf('✗ Not suitable for GSM\n');
-end
-
-% --- Optional: Plot Power Delay Profile (in dB) ---
-figure;
-stem(tau, P_dB, 'filled', 'LineWidth', 1.5);
-xlabel('Delay (μs)');
-ylabel('Power (dB)');
-title('Power Delay Profile (PDP)');
-grid on;
-set(gcf, 'Color', 'w');</code></pre>
-                </div>
-                
-                <div class="output">
-                    <h4>Sample Output:</h4>
-                    <pre>--- Power Delay Profile (PDP) Analysis ---
-Enter the path delays [in μs] as a vector (e.g., [0 1 2 5]): [0 1 2 5]
-Enter the corresponding powers [in dB] (e.g., [-20 -10 -10 0]): [-20 -10 -10 0]
-
---- Computed Results ---
-Mean Excess Delay = 4.380 μs
-RMS Delay Spread = 1.374 μs
-Coherence BW (50%) = 145.54 kHz
-✓ Suitable for AMPS (>=30 kHz)
-✗ Not suitable for GSM</pre>
-                </div>
-            </div>
-
-            <!-- EXPERIMENT 9 -->
-            <div class="experiment" id="exp9">
-                <h2>EXPERIMENT 9</h2>
-                <div class="aim">
-                    <strong>Aim:</strong> To analyze Multipath Baseband Simulation and Frequency Spectrum Analysis.
-                </div>
-                
-                <div class="code-container">
-                    <div class="code-header">
-                        <span>MATLAB Code</span>
-                        <button class="copy-btn" onclick="copyCode(this)">Copy Code</button>
-                    </div>
-                    <pre><code>% Multipath baseband simulation with magnitude, phase, printed values, and frequency spectrum
-clear; close all; clc;
-
-% Given parameters
-fc = 850e6; % carrier frequency (Hz)
-% Multipath delays (ns → s)
-delays_ns = [201, 513, 819, 1223];
-delays = delays_ns * 1e-9;
-
-% Exact complex coefficients
-a = [0.59+1j*0.81, 0.59-1j*0.81, 0.18-1j*0.24, -0.19+1j*0.06];
-
-% Transmitted baseband sb(t): rectangular pulse 0 → 0.5 μs
-pulse_start = 0;
-pulse_end = 0.5e-6;
-Fs = 200e6; % sampling frequency (Hz)
-dt = 1/Fs;
-t = -1e-6 : dt : 4e-6; % time vector (covers before & after multipath)
-
-% Transmitted pulse
-sb = double((t >= pulse_start) & (t <= pulse_end));
-
-% Initialize received signal yb(t)
-yb = complex(zeros(size(sb)));
-
-% Generate received signal
-for k = 1:length(a)
-    tau = delays(k);
-    shift_samples = round(tau / dt);
-    if shift_samples >= 0
-        shifted = [zeros(1,shift_samples), sb(1:end-shift_samples)];
-    else
-        s = -shift_samples;
-        shifted = [sb(s+1:end), zeros(1,s)];
-    end
-    yb = yb + a(k) * shifted;
-end
-
-% --- Plot Section ---
-% 1. Transmitted baseband pulse
-figure;
-plot(t*1e6, real(sb), 'LineWidth', 1.5);
-grid on;
-xlabel('Time (\mus)');
-ylabel('Amplitude');
-title('Transmitted Baseband s_b(t)');
-set(gcf, 'Color', 'w');
-
-% 2. Received signal magnitude
-figure;
-plot(t*1e6, abs(yb), 'LineWidth', 1.5);
-grid on;
-xlabel('Time (\mus)');
-ylabel('|y_b(t)|');
-title('Received Baseband Magnitude |y_b(t)|');
-set(gcf, 'Color', 'w');
-
-% 3. Received signal real part
-figure;
-plot(t*1e6, real(yb), 'LineWidth', 1.2);
-grid on;
-xlabel('Time (\mus)');
-ylabel('Real(y_b(t))');
-title('Real Part of Received Signal');
-set(gcf, 'Color', 'w');
-
-% 4. Channel coefficients: Magnitude and Phase plots
-mag = abs(a);
-phase_deg = angle(a) * 180/pi;
-
-figure;
-subplot(2,1,1);
-stem(delays_ns, mag, 'filled', 'LineWidth', 1.3);
-xlabel('Delay (ns)');
-ylabel('Magnitude');
-title('Multipath Component Magnitude');
-grid on;
-
-subplot(2,1,2);
-stem(delays_ns, phase_deg, 'filled', 'LineWidth', 1.3);
-xlabel('Delay (ns)');
-ylabel('Phase (°)');
-title('Multipath Component Phase');
-grid on;
-set(gcf, 'Color', 'w');
-
-% --- Print magnitude and phase values ---
-fprintf('\nMultipath Component Details:\n');
-fprintf('------------------------------------------------------------\n');
-fprintf('Path | Delay (ns) | Complex Coefficient (a_k) | Magnitude | Phase (deg)\n');
-fprintf('------------------------------------------------------------\n');
-for k = 1:length(a)
-    fprintf(' %d   | %7.0f    | %8.3f %+.3fj        | %7.4f   | %7.2f°\n', ...
-        k, delays_ns(k), real(a(k)), imag(a(k)), mag(k), phase_deg(k));
-end
-fprintf('------------------------------------------------------------\n');
-
-% 5. Frequency-domain analysis of received signal
-N = length(yb);
-YB = fftshift(fft(yb, N)); % centered FFT
-f = (-N/2:N/2-1)*(Fs/N)/1e6; % frequency vector in MHz
-YB_mag = abs(YB)/max(abs(YB)); % normalize magnitude
-
-figure;
-plot(f, 20*log10(YB_mag + eps), 'LineWidth', 1.3);
-xlabel('Frequency (MHz)');
-ylabel('Magnitude (dB)');
-title('Frequency Spectrum of Received Baseband Signal |Y_b(f)|');
-grid on;
-xlim([-100 100]); % show ±100 MHz around baseband
-set(gcf, 'Color', 'w');</code></pre>
-                </div>
-                
-                <div class="output">
-                    <h4>Sample Output:</h4>
-                    <pre>Multipath Component Details:
-------------------------------------------------------------
-Path | Delay (ns) | Complex Coefficient (a_k) | Magnitude | Phase (deg)
-------------------------------------------------------------
- 1   |     201    |    0.590 +0.810j        |  1.0021   |   53.93°
- 2   |     513    |    0.590 -0.810j        |  1.0021   |  -53.93°
- 3   |     819    |    0.180 -0.240j        |  0.3000   |  -53.13°
- 4   |    1223    |   -0.190 +0.060j        |  0.1992   |  162.47°
-------------------------------------------------------------</pre>
-                </div>
-            </div>
-        </div>
-        
-        <footer>
-            <p>&copy; 2024 Wireless Communication Lab Experiments | Complete MATLAB Code Collection</p>
-        </footer>
-    </div>
-
-    <script>
-        function scrollToExp(num) {
-            const element = document.getElementById('exp' + num);
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        }
-
-        function copyCode(button) {
-            const codeBlock = button.parentElement.nextElementSibling.querySelector('code');
-            const text = codeBlock.textContent;
-            
-            navigator.clipboard.writeText(text).then(() => {
-                button.textContent = 'Copied!';
-                button.classList.add('copied');
-                
-                setTimeout(() => {
-                    button.textContent = 'Copy Code';
-                    button.classList.remove('copied');
-                }, 2000);
-            }).catch(err => {
-                console.error('Failed to copy:', err);
-            });
-        }
-    </script>
-</body>
-</html>
+                <!-- Image Upload Section -->
+                <div class="image-upload-section
